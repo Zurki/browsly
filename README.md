@@ -134,3 +134,57 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 - Emoji icons provided by native browser support
 - Inspired by various dashboard applications and start pages
+
+## PM2 Setup for Auto-start on System Boot
+
+This project includes a PM2 configuration file that allows the dashboard to automatically start on system boot.
+
+### Prerequisites
+
+- [PM2](https://pm2.keymetrics.io/) installed globally:
+  ```bash
+  npm install -g pm2
+  ```
+
+### Configuration
+
+1. Edit the `ecosystem.config.cjs` file and update the `cwd` path to match your project location:
+   ```javascript
+   cwd: "/path/to/your/project", // Change this to your actual project path
+   ```
+
+2. Build the project for production:
+   ```bash
+   npm run build
+   # or
+   yarn build
+   ```
+
+3. Start the application with PM2:
+   ```bash
+   pm2 start ecosystem.config.cjs
+   ```
+
+4. Save the current PM2 process list:
+   ```bash
+   pm2 save
+   ```
+
+5. Generate startup script (this will output a command you need to run with sudo):
+   ```bash
+   pm2 startup
+   ```
+
+6. Run the command that PM2 provides in the previous step.
+
+7. To verify the setup, you can restart your system and check if the dashboard starts automatically.
+
+### Managing the PM2 Process
+
+- Check status: `pm2 status`
+- Restart application: `pm2 restart dashboard`
+- Stop application: `pm2 stop dashboard`
+- Remove application from PM2: `pm2 delete dashboard`
+- View logs: `pm2 logs dashboard`
+
+For more information about PM2, visit the [official documentation](https://pm2.keymetrics.io/docs/usage/quick-start/).
