@@ -2,7 +2,13 @@
 
 A modern, customizable personal dashboard application built with React, TypeScript, and Vite.
 
-![Dashboard Screenshot](screenshot.png)
+## Screenshots
+
+### Light Mode
+![Dashboard Light Mode](screenshots/light.png)
+
+### Dark Mode
+![Dashboard Dark Mode](screenshots/dark.png)
 
 ## Features
 
